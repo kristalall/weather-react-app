@@ -1,0 +1,61 @@
+.Weather .units {
+  font-size: 18px;
+  position: relative;
+  top: -20px;
+  font-weight: normal;
+}
+
+.Weather .container {
+  margin: 50px auto 0;
+  width: 650px;
+  max-width: 90%;
+  border: 2px solid rgb(100, 96, 96);
+  padding: 10px 0;
+}
+
+.Weather .current-location {
+  font-size: 14px;
+}
+
+.Weather .date-time {
+  padding: 10px;
+}
+
+.Weather .city-selector {
+  padding: px;
+  line-height: 40px;
+  font-size: 15px;
+}
+
+.Weather .selector-searchbox {
+  box-shadow: -1px 1px 2px gray;
+}
+
+.Weather .forecast-by-day {
+  color: rgb(84, 82, 82);
+  font-size: 18px;
+}
+
+.Weather .forecast-temperature {
+  font-size: 16px;
+}
+
+.Weather .forecast {
+  margin: 10px auto;
+}
+
+.Weather .active {
+  font-weight: bold;
+  color: #212529;
+  text-decoration: none;
+}
+
+.Weather .active:hover {
+  cursor: default;
+  color: #212529;
+}
+
+.Weather .current-day-time {
+  font-size: 20px;
+  color: #545252;
+}
