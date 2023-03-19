@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import Date from "./Date";
 import "./Weather.css";
-
 import axios from "axios";
 
 export default function Weather(props) {
@@ -8,16 +8,14 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({});
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       city: response.data.name,
-      temperature: response.data.main.temp,
-      iconUrl: "http://openweathermap.org/img/wn/03d@2x.png",
+      temperature: Math.round(response.data.main.temp),
+      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      date: "Saturday",
-      time: "2:28",
+      wind: Math.round(response.data.wind.speed),
+      date: new Date(response.data.dt * 1000),
     });
     setWeatherKnown(true);
   }
@@ -67,9 +65,7 @@ export default function Weather(props) {
                 <div className="col date-time">
                   <p className="fw-bold">
                     <span className="align-middle current-day-time">
-                      {weatherData.date}
-                      <br />
-                      {weatherData.time}
+                      <Date date={weatherData.date} />
                     </span>
                   </p>
                 </div>
@@ -77,7 +73,10 @@ export default function Weather(props) {
                   <p className="text-start">
                     Humidity: {weatherData.humidity}%
                     <br />
-                    {weatherData.description} <br />
+                    <span className="text-capitalize">
+                      {weatherData.description}
+                    </span>{" "}
+                    <br />
                     Wind: {weatherData.wind}mph
                   </p>
                 </div>
@@ -89,9 +88,8 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    let city = "Houston";
     let apiKey = "b141c9b5edc44b9a871e4ebe5549ac92";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
     return "Loading";
   }

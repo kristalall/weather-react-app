@@ -4,7 +4,7 @@ import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
-      <Weather />
+      <Weather city="Houston" />
       <p>
         View{" "}
         <a href="https://github.com/kristalall/weather-react-app">
