@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Date from "./Date";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 import axios from "axios";
 
@@ -65,7 +65,7 @@ export default function Weather(props) {
                 <div className="col date-time">
                   <p className="fw-bold">
                     <span className="align-middle current-day-time">
-                      <Date date={weatherData.date} />
+                      <FormattedDate date={weatherData.date} />
                     </span>
                   </p>
                 </div>
