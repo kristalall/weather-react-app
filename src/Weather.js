@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 import axios from "axios";
 
@@ -42,17 +43,7 @@ export default function Weather(props) {
         <div className="container text-center">
           <div className="row">
             <div className="col-6">
-              <h1>{weatherData.city}</h1>
-              <h2>
-                <img src={weatherData.iconUrl} alt={weatherData.description} />
-                {weatherData.temperature}{" "}
-                <span className="units">
-                  <a href="/" className="active">
-                    °F
-                  </a>{" "}
-                  |<a href="/">°C</a>
-                </span>
-              </h2>
+              <WeatherTemperature info={weatherData} />
             </div>
             <div className="col-6 city-selector">
               <form onSubmit={handleSubmit}>
@@ -76,32 +67,7 @@ export default function Weather(props) {
               </button>
             </div>
           </div>
-
-          <div className="row forecast">
-            <div className="col">
-              <div className="row">
-                <div className="col date-time">
-                  <p className="fw-bold">
-                    <span className="align-middle current-day-time">
-                      <FormattedDate date={weatherData.date} />
-                    </span>
-                  </p>
-                </div>
-                <div className="col-5">
-                  <p className="text-start">
-                    Humidity: {weatherData.humidity}%
-                    <br />
-                    <span className="text-capitalize">
-                      {weatherData.description}
-                    </span>{" "}
-                    <br />
-                    Wind: {weatherData.wind}mph
-                  </p>
-                </div>
-              </div>
-              <div className="weather-forecast"></div>
-            </div>
-          </div>
+          <WeatherInfo data={weatherData} />
         </div>
       </div>
     );
