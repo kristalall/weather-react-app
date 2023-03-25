@@ -43,7 +43,11 @@ export default function Weather(props) {
         <div className="container text-center">
           <div className="row">
             <div className="col-6">
-              <WeatherTemperature info={weatherData} />
+              <h1>{weatherData.city}</h1>
+              <h2>
+                <img src={weatherData.iconUrl} alt={weatherData.description} />
+                <WeatherTemperature fahrenheit={weatherData.temperature} />
+              </h2>
             </div>
             <div className="col-6 city-selector">
               <form onSubmit={handleSubmit}>

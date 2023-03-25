@@ -5,6 +5,10 @@
   font-weight: normal;
 }
 
+.Weather .units a {
+  text-decoration: none;
+}
+
 .Weather h2 {
   font-size: 45px;
   font-weight: bold;
