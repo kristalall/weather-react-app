@@ -49,6 +49,10 @@
   font-size: 16px;
 }
 
+.Weather .forecast-min {
+  opacity: 0.8;
+}
+
 .Weather .forecast {
   margin: 10px auto;
 }
