@@ -19,6 +19,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
+      coordinates: response.data.coord,
     });
     setWeatherKnown(true);
   }
@@ -73,7 +74,7 @@ export default function Weather(props) {
             </div>
           </div>
           <WeatherInfo data={weatherData} />
-          <WeatherForecast />
+          <WeatherForecast coordinates={weatherData.coordinates} />
         </div>
       </div>
     );
