@@ -65,12 +65,6 @@ export default function Weather(props) {
                   className="fst-italic selector-searchbox"
                 />
               </form>
-              <button
-                type="button"
-                className="btn btn-primary current-location"
-              >
-                Current Location
-              </button>
             </div>
           </div>
           <WeatherInfo data={weatherData} />
